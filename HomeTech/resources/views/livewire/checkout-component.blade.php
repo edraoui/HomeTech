@@ -74,7 +74,7 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th colspan="2">Product</th>
+                                                <th colspan="2">Technician</th>
                                                 <th>Total</th>
                                             </tr>
                                         </thead>
@@ -98,8 +98,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <th>Shipping</th>
-                                                <td colspan="2"><em>Free Shipping</em></td>
+
                                             </tr>
                                             <tr>
                                                 <th>Total</th>
@@ -112,7 +111,6 @@
                                 </div>
                                 <div class="bt-1 border-color-1 mt-30 mb-30"></div>
                                 @auth
-                                    <a href="{{ Route('pdf') }}" class="btn btn-fill-out btn-block mt-30">Export Order</a>
                                     <a href="#" wire:click.prevent='validateOrder()' class="btn btn-fill-out btn-block mt-30">Place Order</a>
                                 @endauth
                         </div>

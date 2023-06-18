@@ -38,7 +38,7 @@
                                             <th>Id</th>
                                             <th>Date</th>
                                             <th>Subtotal</th>
-                                            <th>Status</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -58,10 +58,7 @@
                                             </tr>
                                         @endforeach
                                         <tr><td colspan="5"></td></tr>
-                                        <tr>
-                                            <th>Total</th>
-                                            <td colspan="4" class="product-subtotal text-center"><span class="font-xl text-brand fw-900">${{$total}}</span></td>
-                                        </tr>
+                                        
                                     </tbody>
                                 </table>
                                 {{$orders->links()}}

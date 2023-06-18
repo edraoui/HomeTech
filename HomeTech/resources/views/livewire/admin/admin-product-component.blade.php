@@ -46,7 +46,7 @@
                                         <th>Image</th>
                                         <th>Name</th>
                                         <th>Status</th>
-                                        <th>Price</th>
+                                        <th>Price per hour</th>
                                         <th>Service</th>
                                         <th>Date</th>
                                         <th>Action</th>

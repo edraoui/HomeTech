@@ -40,9 +40,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',HomeComponent::class)->name('home.index');
 
-Route::get('/shop',ShopComponent::class)->name('shop');
+Route::get('/services',ShopComponent::class)->name('shop');
 
-Route::get('/products/{slug}',DetailsComponent::class)->name('product.details');
+Route::get('/technicians/{slug}',DetailsComponent::class)->name('product.details');
 
 Route::get('/cart',CartComponent::class)->name('shop.cart');
 
@@ -51,7 +51,7 @@ Route::get('/checkout',CheckoutComponent::class)->name('shop.checkout');
 
 Route::get('/pdf',[PDFController::class,'printPDF'])->name('pdf');
 
-Route::get('/product-category/{slug}',CategoryComponent::class)->name('product.category');
+Route::get('/technician-servicesy/{slug}',CategoryComponent::class)->name('product.category');
 
 Route::get('/search',SearchComponent::class)->name('product.search');
 
@@ -63,12 +63,12 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth', 'authadmin')->group(function () {
     Route::get('/admin/dashboard', AdminDashboardComponent::class)->name('admin.dashboard');
     Route::get('/admin/users', AdminUsersComponent::class)->name('admin.users');
-    Route::get('/admin/categories', AdminCategoriesComponent::class)->name('admin.categories');
-    Route::get('/admin/category/add', AdminAddCategoryComponent::class)->name('admin.category.add');
-    Route::get('/admin/category/edit/{category_id}', AdminEditCategoryComponent::class)->name('admin.category.edit');
-    Route::get('/admin/products', AdminProductComponent::class)->name('admin.products');
-    Route::get('/admin/product/add', AdminAddProductComponent::class)->name('admin.product.add');
-    Route::get('/admin/product/edit/{product_id}', AdminEditProductComponent::class)->name('admin.product.edit');
+    Route::get('/admin/services', AdminCategoriesComponent::class)->name('admin.categories');
+    Route::get('/admin/service/add', AdminAddCategoryComponent::class)->name('admin.category.add');
+    Route::get('/admin/service/edit/{category_id}', AdminEditCategoryComponent::class)->name('admin.category.edit');
+    Route::get('/admin/technicians', AdminProductComponent::class)->name('admin.products');
+    Route::get('/admin/technician/add', AdminAddProductComponent::class)->name('admin.product.add');
+    Route::get('/admin/technician/edit/{product_id}', AdminEditProductComponent::class)->name('admin.product.edit');
     Route::get('/admin/orders', AdminOrdersComponent::class)->name('admin.orders');
 
 });

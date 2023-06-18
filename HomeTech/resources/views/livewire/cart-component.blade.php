@@ -4,7 +4,7 @@
             <div class="container">
                 <div class="breadcrumb">
                     <a href="index.html" rel="nofollow">Home</a>
-                    <span></span> Shop
+                    <span></span> Services
                     <span></span> Your Cart
                 </div>
             </div>
@@ -55,7 +55,7 @@
                             @endif
                         </div>
                         <div class="cart-action text-end">
-                            <a class="btn" href="{{Route('shop')}}"><i class="fi-rs-shopping-bag mr-10"></i>Continue Shopping</a>
+                            <a class="btn" href="{{Route('shop')}}"><i class="fas fa-shield-check"></i></i>Continue</a>
                         </div>
                         <div class="divider center_icon mt-50 mb-50"><i class="fi-rs-fingerprint"></i></div>
                         <div class="row mb-50">
@@ -76,8 +76,7 @@
                                                     <td class="cart_total_amount"><span class="font-lg fw-900 text-brand">${{Cart::tax()}}</span></td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="cart_total_label">Shipping</td>
-                                                    <td class="cart_total_amount"> <i class="ti-gift mr-5"></i> Free Shipping</td>
+
                                                 </tr>
                                                 <tr>
                                                     <td class="cart_total_label">Total</td>
