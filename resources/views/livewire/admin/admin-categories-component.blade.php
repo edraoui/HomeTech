@@ -27,7 +27,7 @@
                                         All Services
                                     </div>
                                     <div class="col-md-6">
-                                        <a href="{{ Route('admin.category.add')}}" class="btn btn-success float-end">Add New Category</a>
+                                        <a href="{{ Route('admin.category.add')}}" class="btn btn-success float-end">Add New Service</a>
                                     </div>
                                 </div>
                             </div>
@@ -78,7 +78,7 @@
                 <div class="row">
                     <div class="col-md-12 text-center">
                         <img src="{{ asset('assets/imgs/confirmation.png')}}"  height="90px" width="90px">
-                        <h4 class="pb-3 mt-10 mb-10">Are you sure, you want to delete this category?</h4>
+                        <h4 class="pb-3 mt-10 mb-10">Are you sure, you want to delete this service?</h4>
                         <button type="button" class="btn btn-secondary" data-bs-toggle='modal' data-bs-target='#deleteConfirmation'>Cancel</button>
                         <button type="button" class="btn btn-danger" onclick="deleteCategory()">Delete</button>
                     </div>

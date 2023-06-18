@@ -17,18 +17,36 @@
                             <div class="col-lg-12 col-mg-6"></div>
                         </div>
                         <div class="widget-category mb-30">
-                            <h5 class="section-title style-1 mb-30 wow fadeIn animated">Service</h5>
+                            <h5 class="section-title style-1 mb-30 wow fadeIn animated">service</h5>
                             <ul class="categories">
                                 @foreach ($categories as $category )
-                                <li><a href="{{ Route('product.category',['slug'=>$category->slug])}}">{{$category->name}}</a></li>
+                                    <li><a href="{{ Route('product.category',['slug'=>$category->slug])}}">{{$category->name}}</a></li>
                                 @endforeach
                             </ul>
+                        </div>
+                        <!-- Fillter By Price -->
+                        <div class="sidebar-widget price_range range mb-30">
+                            <div class="widget-header position-relative mb-20 pb-10">
+                                <h5 class="widget-title mb-10">Fillter by price</h5>
+                                <div class="bt-1 border-color-1"></div>
+                            </div>
+                            <div class="price-filter">
+                                <div class="price-filter-inner">
+                                    <div id="slider-range" wire:ignore></div>
+                                    <div class="price_slider_amount">
+                                        <div class="label-input">
+                                            <span>Range:</span>
+                                            <span class="text-info">${{$min_value}}</span> - <span class="text-info">${{$max_value}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-9">
                         <div class="shop-product-fillter">
                             <div class="totall-product">
-                                <p> We found <strong class="text-brand">{{$products->total()}}</strong> items for you from <strong class="text-brand">{{$category_name}}</strong> service!</p>
+                                <p> We found <strong class="text-brand">{{$products->total()}}</strong> items for you!</p>
                             </div>
                             <div class="sort-by-product-area">
                                 <div class="sort-by-cover mr-10">
@@ -80,20 +98,21 @@
                                                 </a>
                                             </div>
                                             <div class="product-action-1">
-                                                <a aria-label="Quick view" href="{{Route('product.details',['slug'=>$product->slug])}}" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-                                                    <i class="fi-rs-search"></i></a>
+                                                <a aria-label="Quick view" href='{{Route('product.details',['slug'=>$product->slug])}}' class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                                                    <i class="fi-rs-search"></i>
+                                                </a>
                                             </div>
                                         </div>
                                         <div class="product-content-wrap">
                                             <div class="product-category">
-                                                <a href="shop.html">{{$product->category->name}}</a>
+                                                <a href="#">{{$product->category->name}}</a>
                                             </div>
-                                            <h2><a href="{{Route('product.details',['slug'=>$product->slug])}}">{{$product->name}}</a></h2>
+                                            <h2><a href="product-details.html">{{$product->name}}</a></h2>
                                             <div class="product-price">
-                                                <span>${{$product->regular_price}} per hour  </span>
+                                                <span>${{$product->regular_price}}  per hour</span>
                                             </div>
                                             <div class="product-action-1 show">
-                                                <a aria-label="Add To Cart" class="action-btn hover-up" href="#" wire:click.prevent="store({{$product->id}},'{{$product->name}}',{{$product->regular_price}})"><i class="fi-rs-shopping-bag-add"></i></a>
+                                                <a aria-label="Order" class="action-btn hover-up" href="#" wire:click.prevent="store({{$product->id}},'{{$product->name}}',{{$product->regular_price}})"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M16.1 260.2c-22.6 12.9-20.5 47.3 3.6 57.3L160 376V479.3c0 18.1 14.6 32.7 32.7 32.7c9.7 0 18.9-4.3 25.1-11.8l62-74.3 123.9 51.6c18.9 7.9 40.8-4.5 43.9-24.7l64-416c1.9-12.1-3.4-24.3-13.5-31.2s-23.3-7.5-34-1.4l-448 256zm52.1 25.5L409.7 90.6 190.1 336l1.2 1L68.2 285.7zM403.3 425.4L236.7 355.9 450.8 116.6 403.3 425.4z"/></svg></a>
                                             </div>
                                         </div>
                                     </div>
@@ -105,8 +124,29 @@
                             {{$products->links()}}
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
     </main>
 </div>
+
+{{-- Price range --}}
+@push('scripts')
+    <script>
+        var sliderrange = $('#slider-range');
+        var amountprice = $('#amount');
+        $(function() {
+            sliderrange.slider({
+                range: true,
+                min: 0,
+                max: 1000,
+                values: [0, 1000],
+                slide: function(event, ui) {
+                    @this.set('min_value',ui.values[0]);
+                    @this.set('max_value',ui.values[1]);
+                }
+            });
+        });
+    </script>
+@endpush
